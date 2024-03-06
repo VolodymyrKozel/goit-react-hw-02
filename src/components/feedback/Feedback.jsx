@@ -1,16 +1,20 @@
-const Feedback = ({feedback}) => {
-    
+import css from './Feedback.module.css';
+const Feedback = ({ feedback, total, positive }) => {
+  const feedbackKeys = Object.keys(feedback);
+  console.log(feedbackKeys);
   return (
-    <>
-    <ul>
-    <li>Good: {feedback.good}</li>
-    <li>Neutral: {feedback.neutral}</li>
-    <li>Bad: {feedback.bad}</li>
-</ul>
-    <p>Total: </p>
-    <p>Positive: </p>
-    </>
-  )
-}
+    <div className={css.wrapper}>
+      <ul className={css['feedback-list']}>
+        {feedbackKeys.map(feed => (
+          <li className={css['feedback-item']} key={feed}>
+            {feed} : {feedback[feed]}
+          </li>
+        ))}
+      </ul>
+      <p className={css.total}>Total: {total}</p>
+      <p className={css.positive}>Positive: {positive}</p>
+    </div>
+  );
+};
 
-export default Feedback
+export default Feedback;

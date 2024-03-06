@@ -1,0 +1,22 @@
+.wrapper {
+  padding: 24px;
+  border-radius: 10px;
+  background-color: hsl(0, 0%, 80%);
+}
+.feedback-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  font-size: 22px;
+  gap: 16px;
+}
+.feedback-item {
+  text-transform: capitalize;
+}
+.positive {
+  font-size: 24px;
+}
+.total {
+  font-size: 24px;
+  font-weight: bold;
+}

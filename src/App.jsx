@@ -6,20 +6,21 @@ import Notification from './components/notification/Notification';
 import './App.css';
 
 function App() {
+  const clearObject = {
+    good: 0,
+    neutral: 0,
+    bad: 0,
+  };
   const [feedback, setFeedback] = useState(() => {
     const savedObject = window.localStorage.getItem('saved-feedback');
     if (savedObject !== null) {
       return JSON.parse(savedObject);
     }
-    return { good: 0, neutral: 0, bad: 0 };
+    return clearObject;
   });
   const updateFeedback = feedbackType => {
     if (feedbackType === 'reset') {
-      setFeedback({
-        good: 0,
-        neutral: 0,
-        bad: 0,
-      });
+      setFeedback(clearObject);
       return;
     }
     setFeedback({ ...feedback, [feedbackType]: feedback[feedbackType] + 1 });
